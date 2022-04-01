@@ -8,5 +8,8 @@
     "test": "jest"
   },
   "author": "J. Morgan Lieberthal",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pigpio": "^3.3.1"
+  }
 }
