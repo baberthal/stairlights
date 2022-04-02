@@ -2,12 +2,14 @@
 
 const { Gpio } = require('pigpio');
 
-const led = new Gpio(22, { mode: Gpio.OUTPUT });
+const led1 = new Gpio(22, { mode: Gpio.OUTPUT });
+const led2 = new Gpio(27, { mode: Gpio.OUTPUT });
 
 let dutyCycle = 0;
 
 setInterval(() => {
-  led.pwmWrite(dutyCycle);
+  led1.pwmWrite(dutyCycle);
+  led2.pwmWrite(255 - dutyCycle)
   dutyCycle += 5;
   if (dutyCycle > 255) {
     dutyCycle = 0;
