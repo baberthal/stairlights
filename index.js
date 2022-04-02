@@ -9,6 +9,8 @@ let dutyCycle = 0;
 
 setInterval(() => {
   led1.pwmWrite(dutyCycle);
+  let inverse = 255 - dutyCycle;
+  inverse = inverse < 0 ? -inverse : inverse;
   led2.pwmWrite(255 - dutyCycle)
   dutyCycle += 5;
   if (dutyCycle > 255) {
