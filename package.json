@@ -5,7 +5,8 @@
   "description": "Lights for the stairs",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "author": "J. Morgan Lieberthal",
   "license": "ISC",
