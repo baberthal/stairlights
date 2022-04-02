@@ -18,8 +18,9 @@ setInterval(() => {
   }
 }, 20);
 
-process.on('exit', () => {
+process.on('exit', (code) => {
   console.log('exiting');
   led1.pwmWrite(0);
   led2.pwmWrite(0);
+  return code;
 })
