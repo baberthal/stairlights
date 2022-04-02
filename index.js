@@ -17,3 +17,9 @@ setInterval(() => {
     dutyCycle = 0;
   }
 }, 20);
+
+process.on('exit', () => {
+  console.log('exiting');
+  led1.pwmWrite(0);
+  led2.pwmWrite(0);
+})
