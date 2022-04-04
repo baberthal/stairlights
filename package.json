@@ -11,6 +11,7 @@
   "author": "J. Morgan Lieberthal",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.3",
     "pigpio": "^3.3.1"
   }
 }
