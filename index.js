@@ -18,14 +18,27 @@ leds.green.pwmWrite(255);
 leds.blue.pwmWrite(255);
 
 let dutyCycle = 0;
-let delta = 5;
+let direction = 'up';
 
 setInterval(() => {
   leds.red.pwmWrite(dutyCycle);
   leds.green.pwmWrite(dutyCycle);
   leds.blue.pwmWrite(dutyCycle);
 
-  dutyCycle = dutyCycle + delta;
+  if (direction === 'up') {
+    dutyCycle += 5;
+  } else if (direction === 'down') {
+    dutyCycle -= 5;
+  } else {
+    throw new Error(`Unknown direction: ${direction}`);
+  }
+
+  if (dutyCycle > 255) {
+    direction = 'down';
+  } else {
+    console.log('dutyCycle:', dutyCycle);
+  }
+
   if (dutyCycle > 255) {
     dutyCycle = 0;
   }
