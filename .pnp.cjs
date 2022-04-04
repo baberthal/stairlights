@@ -33,8 +33,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@types/pigpio", "npm:3.1.0"],\
             ["express", "npm:4.17.3"],\
-            ["pigpio", "npm:3.3.1"]\
+            ["pigpio", "npm:3.3.1"],\
+            ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -75,6 +77,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@tootallnate-once-npm-2.0.0-e36cf4f140-ad87447820.zip/node_modules/@tootallnate/once/",\
           "packageDependencies": [\
             ["@tootallnate/once", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/pigpio", [\
+        ["npm:3.1.0", {\
+          "packageLocation": "./.yarn/cache/@types-pigpio-npm-3.1.0-886083bae6-b766d45f8c.zip/node_modules/@types/pigpio/",\
+          "packageDependencies": [\
+            ["@types/pigpio", "npm:3.1.0"],\
+            ["pigpio", "npm:3.3.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1384,8 +1396,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["stairlights", "workspace:."],\
+            ["@types/pigpio", "npm:3.1.0"],\
             ["express", "npm:4.17.3"],\
-            ["pigpio", "npm:3.3.1"]\
+            ["pigpio", "npm:3.3.1"],\
+            ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -1462,6 +1476,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-is", "npm:1.6.18"],\
             ["media-typer", "npm:0.3.0"],\
             ["mime-types", "npm:2.1.35"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["typescript", [\
+        ["patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367", {\
+          "packageLocation": "./.yarn/cache/typescript-patch-30b732d1e2-6bf45caf84.zip/node_modules/typescript/",\
+          "packageDependencies": [\
+            ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "HARD"\
         }]\

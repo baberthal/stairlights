@@ -1,9 +1,12 @@
 'use strict';
 
 const { Gpio } = require('pigpio');
-const LedSet = require('./src/led-set');
 
-// const proximitySensor = new Gpio(17, { mode: Gpio.INPUT, edge: Gpio.EITHER_EDGE });
+const proximitySensor = new Gpio(26, {
+  mode: Gpio.INPUT,
+  pullUpDown: Gpio.PUD_DOWN,
+  edge: Gpio.EITHER_EDGE,
+});
 const red = new Gpio(16, { mode: Gpio.OUTPUT });
 const green = new Gpio(20, { mode: Gpio.OUTPUT });
 const blue = new Gpio(21, { mode: Gpio.OUTPUT });
@@ -13,30 +16,38 @@ const leds = {
   blue,
 };
 
-leds.red.pwmWrite(255);
-leds.green.pwmWrite(255);
-leds.blue.pwmWrite(255);
+const setLeds = (r, g = r, b = r) => {
+  leds.red.pwmWrite(r);
+  leds.green.pwmWrite(g);
+  leds.blue.pwmWrite(b);
+};
 
-let dutyCycle = 0;
-let direction = 'up';
+setLeds(127);
 
-setInterval(() => {
-  leds.red.pwmWrite(dutyCycle);
-  leds.green.pwmWrite(dutyCycle);
-  leds.blue.pwmWrite(dutyCycle);
+proximitySensor.on('interrupt', (level) => {
+  console.log('level:', level);
+});
 
-  if (direction === 'up') {
-    dutyCycle += 5;
-  } else if (direction === 'down') {
-    dutyCycle -= 5;
-  } else {
-    throw new Error(`Unknown direction: ${direction}`);
-  }
+// let dutyCycle = 0;
+// let direction = 'up';
 
-  if (dutyCycle === 255) {
-    direction = 'down';
-  } else if (dutyCycle === 0) {
-    direction = 'up';
-  }
-}, 20);
+// setInterval(() => {
+//   leds.red.pwmWrite(dutyCycle);
+//   leds.green.pwmWrite(dutyCycle);
+//   leds.blue.pwmWrite(dutyCycle);
+
+//   if (direction === 'up') {
+//     dutyCycle += 5;
+//   } else if (direction === 'down') {
+//     dutyCycle -= 5;
+//   } else {
+//     throw new Error(`Unknown direction: ${direction}`);
+//   }
+
+//   if (dutyCycle === 255) {
+//     direction = 'down';
+//   } else if (dutyCycle === 0) {
+//     direction = 'up';
+//   }
+// }, 20);
 
