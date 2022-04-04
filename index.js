@@ -26,6 +26,7 @@ setLeds(127);
 
 proximitySensor.on('interrupt', (level) => {
   console.log('level:', level);
+  setLeds(level * 127);
 });
 
 // let dutyCycle = 0;
