@@ -38,9 +38,5 @@ setInterval(() => {
   } else {
     console.log('dutyCycle:', dutyCycle);
   }
-
-  if (dutyCycle > 255) {
-    dutyCycle = 0;
-  }
 }, 20);
 
