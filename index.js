@@ -10,3 +10,5 @@ const leds = new LedSet({
   greenPin: 28,
   bluePin: 21,
 });
+
+leds.setColor(255, 255, 255);
