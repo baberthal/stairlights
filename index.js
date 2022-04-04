@@ -16,3 +16,13 @@ const leds = {
 leds.red.pwmWrite(255);
 leds.green.pwmWrite(255);
 leds.blue.pwmWrite(255);
+
+for (let i = 0; i < 255; i++) {
+  leds.red.pwmWrite(i);
+  leds.green.pwmWrite(i);
+  leds.blue.pwmWrite(i);
+}
+
+leds.red.pwmWrite(0);
+leds.green.pwmWrite(0);
+leds.blue.pwmWrite(0);
