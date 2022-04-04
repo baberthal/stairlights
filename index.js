@@ -33,10 +33,10 @@ setInterval(() => {
     throw new Error(`Unknown direction: ${direction}`);
   }
 
-  if (dutyCycle > 255) {
+  if (dutyCycle === 255) {
     direction = 'down';
-  } else {
-    console.log('dutyCycle:', dutyCycle);
+  } else if (dutyCycle === 0) {
+    direction = 'up';
   }
 }, 20);
 
